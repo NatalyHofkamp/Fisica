@@ -10,7 +10,7 @@ def charge_data(data, filename):
             data['ANCHO'].append(float(l[1].replace(',', '.')))
             data['MASA'].append(float(l[2].replace(',', '.')))
             data['AREA'].append(float(l[3].replace(',', '.')))
-
+          
 def  dist_poisson(lamb,size):
     return poisson.rvs(mu = lamb, size = size)
 
