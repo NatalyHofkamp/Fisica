@@ -38,10 +38,10 @@ def plot(x, y, title, xaxis, yaxis,y_err,x_err,xlog,ylog):
     # Plot the weighted power-law fit
     plt.plot(x_fit, power_law(x_fit, a, b), label=f"Fit: y={a:.2f}x^{b:.2f}")
 
-    plt.xlabel(xaxis)
-    plt.ylabel(yaxis)
+    plt.xlabel(xaxis, fontsize = 14)
+    plt.ylabel(yaxis, fontsize = 14)
     plt.legend()
-    plt.title(title)
+    plt.title(title, fontsize = 16)
     plt.show()
 
     # Hacemos el logaritmo de los datos
@@ -59,25 +59,24 @@ def plot(x, y, title, xaxis, yaxis,y_err,x_err,xlog,ylog):
     plt.subplot(1, 2, 2)
     plt.errorbar(log_x, log_y, yerr=log_y_err, fmt='.', label="Log Data")
     plt.plot(log_x, linear_model(log_x, m, c), label=f"Linear Fit: y={m:.2f}±{m_err:.2f}x + {c:.2f}±{c_err:.2f}")
-    plt.xlabel(xlog)
-    plt.ylabel(ylog)
+    plt.xlabel(xlog, fontsize = 14)
+    plt.ylabel(ylog, fontsize = 14)
     plt.legend()
-    plt.title("Data en Log-Log con ajuste lineal")
+    plt.title("Data en Log-Log con ajuste lineal", fontsize = 16)
 
     plt.subplot(1, 2, 1)
     plt.errorbar(x, y, yerr=y_err, fmt='.', label="Data")
     plt.plot(x, power_law(x, a, b), label=f"Power Law Fit: y={a:.2f}x^{b:.2f}")
-    plt.xlabel(xaxis)
-    plt.ylabel(yaxis)
+    plt.xlabel(xaxis, fontsize = 14)
+    plt.ylabel(yaxis, fontsize = 14)
     plt.legend()
-    plt.title("Data con ajuste de ley de potencias")
+    plt.title("Data con ajuste de ley de potencias", fontsize = 16)
 
     plt.tight_layout()
-    plt.savefig(yaxis +'.png')
     plt.show()
     print(f"Slope (m): {m:.2f} ± {m_err:.2f}")
     print(f"Intercept (c): {c:.2f} ± {c_err:.2f}")
-    plt.savefig(yaxis +'.jpg')
+    plt.savefig(yaxis +'.jpg', bbox_inches = 'tight')
 
 
 
